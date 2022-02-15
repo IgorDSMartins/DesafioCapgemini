@@ -4,7 +4,7 @@ import java.util.regex.Pattern;
 
 /**
  * 
- * Questão 02 Desafio Capgemini - Senha
+ * QuestÃ£o 02 Desafio Capgemini - Senha
  * 
  * @author Igor Martins
  * 
@@ -38,15 +38,27 @@ public static void main(String[] args) {
             if(Character.isDigit(c)){ // numero
                 numero++;
             }
-            Pattern p = Pattern.compile("[^A-Za-z0-9]"); // padrão de caracteres nao especiais
+            Pattern p = Pattern.compile("[^A-Za-z0-9]"); // padrÃ£o de caracteres nao especiais
             Matcher m = p.matcher(senha);
             boolean b = m.find();
             if (b)
                especial++; 
         }
+        if(especial == 0){ 
+            System.out.println("Digite pelo menos 1 caractere especial para uma senha forte;"); // condiÃ§Ãµes para senha forte
+        }
+        if(maiusculo == 0){
+            System.out.println("Digite pelo menos 1 caractere em maiusculo para uma senha forte;");
+        }
+        if(minusculo == 0){
+            System.out.println("Digite pelo menos 1 caractere em minusculo para uma senha forte;");
+        }
+        if(numero == 0){
+            System.out.println("Digite pelo menos 1 numero para uma senha forte;");
+        }
         
         if(especial>=1&&minusculo>=1&&maiusculo>=1&&numero>=1){ // possui todos os requerimentos para ser considerada uma senha forte
-            System.out.println("A senha é forte");
+            System.out.println("A senha Ã© forte");
         }
         else {
             System.out.println("A senha possui o tamanho minimo"); // Senha possui apenas o tamanha minimo
@@ -54,7 +66,7 @@ public static void main(String[] args) {
     }
     if(senha.length()<min) {
     	int restante = min - senha.length();
-    	System.out.printf("É necessario mais%2d caracteres para a senha ser considerada segura", restante); // diz o numero de caracteres que precisa
+    	System.out.printf("Ã‰ necessario mais%2d caracteres para a senha ser considerada segura", restante); // diz o numero de caracteres que precisa
     }
 			scan.close();
    }
